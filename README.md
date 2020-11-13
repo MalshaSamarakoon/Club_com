@@ -1,2 +1,3 @@
-# NatureThis is about adetails of a nature club
+# Nature club
+This is about details of a nature club
 
