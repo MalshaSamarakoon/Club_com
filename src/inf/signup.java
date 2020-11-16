@@ -5,6 +5,13 @@
  */
 package inf;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author dell
@@ -30,21 +37,22 @@ public class signup extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        lname = new javax.swing.JTextField();
         fname = new javax.swing.JTextField();
-        mobile = new javax.swing.JTextField();
         mail = new javax.swing.JTextField();
         pwsign = new javax.swing.JPasswordField();
         pwsigncon = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         submit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jLabel5.setText("jLabel5");
 
@@ -57,10 +65,7 @@ public class signup extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Create Your Account..");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
-
-        lname.setBackground(new java.awt.Color(0, 102, 0));
-        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 350, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         fname.setBackground(new java.awt.Color(0, 102, 0));
         fname.addActionListener(new java.awt.event.ActionListener() {
@@ -68,15 +73,7 @@ public class signup extends javax.swing.JFrame {
                 fnameActionPerformed(evt);
             }
         });
-        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 320, 30));
-
-        mobile.setBackground(new java.awt.Color(0, 102, 0));
-        mobile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mobileActionPerformed(evt);
-            }
-        });
-        jPanel1.add(mobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 350, 30));
+        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 320, 30));
 
         mail.setBackground(new java.awt.Color(0, 102, 0));
         mail.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +81,7 @@ public class signup extends javax.swing.JFrame {
                 mailActionPerformed(evt);
             }
         });
-        jPanel1.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 320, 30));
+        jPanel1.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 320, 30));
 
         pwsign.setBackground(new java.awt.Color(0, 102, 0));
         pwsign.setToolTipText("");
@@ -93,7 +90,7 @@ public class signup extends javax.swing.JFrame {
                 pwsignActionPerformed(evt);
             }
         });
-        jPanel1.add(pwsign, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 320, 30));
+        jPanel1.add(pwsign, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 320, 30));
 
         pwsigncon.setBackground(new java.awt.Color(0, 102, 0));
         pwsigncon.addActionListener(new java.awt.event.ActionListener() {
@@ -101,37 +98,27 @@ public class signup extends javax.swing.JFrame {
                 pwsignconActionPerformed(evt);
             }
         });
-        jPanel1.add(pwsigncon, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 350, 30));
+        jPanel1.add(pwsigncon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 320, 30));
 
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("First Name");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 90, 30));
-
-        jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Last Name");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, -1, -1));
+        jLabel4.setText("Full Name");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 30));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Password");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Confirm Password");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Email Address");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Contact Number");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         submit.setBackground(new java.awt.Color(0, 102, 0));
         submit.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
@@ -141,12 +128,28 @@ public class signup extends javax.swing.JFrame {
                 submitActionPerformed(evt);
             }
         });
-        jPanel1.add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 440, -1, -1));
+        jPanel1.add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 0));
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel1.setText("Register");
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        jLabel3.setText("Member Details");
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton1.setText("Home page");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(0, 102, 0));
+        jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton2.setText("My Account");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -155,18 +158,44 @@ public class signup extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(918, Short.MAX_VALUE))
+                .addGap(433, 433, 433)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(50, 50, 50)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 50));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1050, 550));
+        jTable1.setBackground(new java.awt.Color(204, 255, 204));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 810, 490));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,10 +207,6 @@ public class signup extends javax.swing.JFrame {
     private void mailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mailActionPerformed
-
-    private void mobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mobileActionPerformed
 
     private void pwsignconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwsignconActionPerformed
         // TODO add your handling code here:
@@ -196,6 +221,17 @@ public class signup extends javax.swing.JFrame {
     private void pwsignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwsignActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pwsignActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       try {
+            Desktop d= Desktop.getDesktop();
+            d.browse(new URI("http://bing.com"));
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,20 +270,21 @@ public class signup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField fname;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField lname;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField mail;
-    private javax.swing.JTextField mobile;
     private javax.swing.JPasswordField pwsign;
     private javax.swing.JPasswordField pwsigncon;
     private javax.swing.JButton submit;
