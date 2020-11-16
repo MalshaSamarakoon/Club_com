@@ -178,12 +178,13 @@ public class login extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
 try {
             Desktop d= Desktop.getDesktop();
-            d.browse(new URI("http://bing.com"));
+            d.browse(new URI("http://127.0.0.1:8000/"));
         } catch (URISyntaxException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        } 
+          dispose();
     }//GEN-LAST:event_loginActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
