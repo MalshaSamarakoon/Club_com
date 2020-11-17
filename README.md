@@ -1,3 +1,5 @@
-# Nature club
-This is about details of a nature club
+# Club Members
+
+To communicate with members 
+
 
