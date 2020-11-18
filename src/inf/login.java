@@ -42,8 +42,8 @@ public class login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        uname = new javax.swing.JTextField();
-        pword = new javax.swing.JPasswordField();
+        unamebox = new javax.swing.JTextField();
+        pwordbox = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
         signup = new javax.swing.JButton();
 
@@ -94,14 +94,14 @@ public class login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Password");
 
-        uname.setBackground(new java.awt.Color(0, 102, 0));
-        uname.addActionListener(new java.awt.event.ActionListener() {
+        unamebox.setBackground(new java.awt.Color(0, 102, 0));
+        unamebox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unameActionPerformed(evt);
+                unameboxActionPerformed(evt);
             }
         });
 
-        pword.setBackground(new java.awt.Color(0, 102, 0));
+        pwordbox.setBackground(new java.awt.Color(0, 102, 0));
 
         login.setBackground(new java.awt.Color(0, 102, 0));
         login.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -135,8 +135,8 @@ public class login extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(uname, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                            .addComponent(pword)))
+                            .addComponent(unamebox, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                            .addComponent(pwordbox)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(signup)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
@@ -149,11 +149,11 @@ public class login extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(uname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unamebox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwordbox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -171,12 +171,18 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
+    private void unameboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_unameActionPerformed
+    }//GEN-LAST:event_unameboxActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-try {
+ String uname;
+        String pword;
+        
+           uname=unamebox.getText();
+           pword=pwordbox.getText();
+        if(uname.equals("malsha") && pword.equals("chamodi@1")){
+        try {
             Desktop d= Desktop.getDesktop();
             d.browse(new URI("http://127.0.0.1:8000/"));
         } catch (URISyntaxException ex) {
@@ -186,13 +192,20 @@ try {
         } 
           dispose();
     }//GEN-LAST:event_loginActionPerformed
-
+    
+     else{
+                //JOptionpane.showMessageDialog(null,"User Name or Password is incorrect");
+            }
+    }
+    
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
         
         signup s1 = new signup();
           s1.setVisible(true);
           
           dispose();
+          
+          
     }//GEN-LAST:event_signupActionPerformed
 
     /**
@@ -240,8 +253,8 @@ try {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton login;
-    private javax.swing.JPasswordField pword;
+    private javax.swing.JPasswordField pwordbox;
     private javax.swing.JButton signup;
-    private javax.swing.JTextField uname;
+    private javax.swing.JTextField unamebox;
     // End of variables declaration//GEN-END:variables
 }
